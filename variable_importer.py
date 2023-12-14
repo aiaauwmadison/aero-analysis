@@ -65,11 +65,11 @@ def run():
         ork_dict = get_ork_dict(ork_filename)
 
         # --- fin parameters ---
-        fins_dict = get_fins_dict(ork_dict)
-        b = float(fins_dict['height'])/0.0254
-        c_r = float(fins_dict['rootchord'])/0.0254
-        c_t = float(fins_dict['tipchord'])/0.0254
-        FT = float(fins_dict['thickness'])/0.0254
+        finset_dict = get_finset_dict(ork_dict)
+        b = float(finset_dict['height'])/0.0254
+        c_r = float(finset_dict['rootchord'])/0.0254
+        c_t = float(finset_dict['tipchord'])/0.0254
+        FT = float(finset_dict['thickness'])/0.0254
 
         ### WIP
         # --- main chute parameters ---
@@ -145,7 +145,7 @@ def ork_toString(ork_file_path):
 
 
 
-def get_fins_dict(ork_dict):
+def get_finset_dict(ork_di
     ### testing
     # tk_tree_view(ork_dict)
     # subcomponents_dict = ork_dict['openrocket']['rocket']['subcomponents']['stage']['subcomponents']
@@ -153,14 +153,14 @@ def get_fins_dict(ork_dict):
     # for key, value in subcomponents_dict.items():
     #     print(key)
 
-    fins_dict = ork_dict['openrocket']['rocket']['subcomponents']['stage'][
+    finset_dict = ork_dict['openrocket']['rocket']['subcomponents']['stage'][
         'subcomponents']['bodytube'][4]['subcomponents']['trapezoidfinset']
-    # semispan = fins_dict['height']
-    # rootchord = fins_dict['rootchord']
-    # tipchord = fins_dict['tipchord']
-    # thickness = fins_dict['thickness']
+    # semispan = finset_dict['height']
+    # rootchord = finset_dict['rootchord']
+    # tipchord = finset_dict['tipchord']
+    # thickness = finset_dict['thickness']
     
-    return fins_dict
+    return finset_dict
 
 
 def get_main_chute_dict(ork_dict):
@@ -302,7 +302,7 @@ def get_drogue_chute_dict(ork_dict):
 # def run_parser():
     # rocket_ork_path = get_ork()
     # ork_string = ork_toString(rocket_ork_path)
-    # fin_dict = get_fins_dict(ork_string)
+    # fin_dict = get_finset_dict(ork_string)
 
 # Extracting parachute details from the bodytube subcomponents
 # def extract_parachutes(data):

@@ -150,7 +150,6 @@ latex += r'\begin{align*}' + '\n\t\t'
 # Fin Geometry Calculations Block
 latex += r'% Fin Geometry Calculations Block' + '\n\t\t'
 latex += r'\textbf{Fin Flutter Calculations} \\' + '\n\t\t'
-# latex += r'\subsection{Fin Geometry Calculations} \\' + '\n\t\t'
 latex += r'\text{Root Chord Length:}& &c_{r} &=\SI{' + c_r_str + r'}{in} \\' + '\n\t\t'
 latex += r'\text{Tip Chord Length:}& &c_{t} &= \SI{' + c_t_str + r'}{in} \\' + '\n\t\t'
 latex += r'\text{Fin Thickness:}& &FT &= \SI{' + FT_str + r'}{in} \\' + '\n\t\t'
@@ -190,7 +189,7 @@ latex += r'\\' + '\n\t\t'
 
 # Fin Flutter Velocity Calculations
 latex += r'% Fin Flutter Velocity Calculations' + '\n\t\t'
-latex += r'\textbf{Fin Flutter Velocity Calculations} \\' + '\n\t\t'
+latex += r'\textbf{Fin Velocity Calculations} \\' + '\n\t\t'
 latex += r'\text{Max velocity of rocket:}& &V_{max} &= \SI{' + V_max_str + r'}{ft/s} \\ \\' + '\n\t\t'
 latex += r'\text{Fin flutter velocity:}& &v_{fl} &= \sqrt {\frac{ G }{\left( \frac{ 39.3 \cdot \left( AR \right) ^{ 3 } }{ \left( \frac{ FT }{ c_{r} } \right) ^{ 3 } \cdot \left( AR + 2 \right) } \right) \left( \frac{ \lambda + 1 }{ 2 } \right) \left( \frac{ P }{ P_{0} } \right) } } \cdot a \tag{eqn. 8} \\'
 latex += r'&& &= \sqrt { \frac{' + G_str + r'}{ \left( \frac{ 39.3 \cdot \left(' + AR_str + r' \right) ^{ 3 } }{ \left( \frac{' + FT_str + r'}{' + c_r_str + r'} \right) ^{3} \cdot \left(' + AR_str + r' + 2 \right) } \right) \left( \frac{' + taper_str + r'+ 1 }{ 2 } \right) \left( \frac{' + P_str + r'}{' + P_0_str + r'} \right) } } \cdot ' + a_str +  r'\\'

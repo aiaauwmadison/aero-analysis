@@ -149,7 +149,7 @@ latex += r'\begin{align*}' + '\n\t\t'
 # Equations
 # Fin Geometry Calculations Block
 latex += r'% Fin Geometry Calculations Block' + '\n\t\t'
-latex += r'\textbf{Fin Flutter Calculations} \\' + '\n\t\t'
+latex += r'\textbf{Fin Geometry Calculations} \\' + '\n\t\t'
 latex += r'\text{Root Chord Length:}& &c_{r} &=\SI{' + c_r_str + r'}{in} \\' + '\n\t\t'
 latex += r'\text{Tip Chord Length:}& &c_{t} &= \SI{' + c_t_str + r'}{in} \\' + '\n\t\t'
 latex += r'\text{Fin Thickness:}& &FT &= \SI{' + FT_str + r'}{in} \\' + '\n\t\t'

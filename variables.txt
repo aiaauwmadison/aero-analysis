@@ -14,7 +14,7 @@ rho_m: 0.0650
 Cd_d: 1.55
 rho_d: 0.0638
 D_d: 2.5
-D_a: 6
+D_a: 3.9
 L_Dbay: 10
 L_Mbay: 21
 P_e: 12

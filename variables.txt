@@ -1,13 +1,13 @@
 ork_filename: IREC2024_12_4_2023_WIP2.ork
 author: Gabe Bohlmann
 G: 1,185,185.16
-V_max: 1060
+V_max: 997.89
 h_g: 4595
-h_relVmax: 2006.2
+h_relVmax: 1947.94
 m: 59 
-v_i: 76.28
-v_f: 14.18      
-t_infl: 5.2
+v_i: 79.11
+v_f: 15.36      
+t_infl: 0.5
 Cd_m: 2.2
 D_m: 12
 rho_m: 0.0650

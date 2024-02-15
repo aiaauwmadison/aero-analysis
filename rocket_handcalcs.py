@@ -1,4 +1,4 @@
-from math import sqrt, sin, pi
+from math import sqrt, pi
 import variable_importer
 # import sympy
 import importlib

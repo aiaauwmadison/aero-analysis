@@ -2,6 +2,9 @@ __pycache__
 OLD
 output.aux
 output.log
+output.pdf
 output.synctex.gz
+output.tex
 ORKs
 rocket.ork
+venv

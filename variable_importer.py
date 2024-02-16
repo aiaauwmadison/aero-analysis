@@ -1,12 +1,13 @@
-import math
 import zipfile
 import os
-from lxml.etree import fromstring, tostring
-from xml.etree import ElementTree as ET
-import uuid
-import tkinter as tk
-from tkinter import ttk
 import xmltodict
+# import math
+# from lxml.etree import fromstring, tostring
+# from xml.etree import ElementTree as ET
+# import uuid
+# import tkinter as tk
+# from tkinter import ttk
+
 
 filename = 'variables.txt'
 

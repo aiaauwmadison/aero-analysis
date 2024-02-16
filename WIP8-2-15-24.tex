@@ -1,0 +1,134 @@
+\documentclass{article}
+\title{Fin Flutter Analysis}
+\author{Gabe Bohlmann}
+\date{\today}
+
+\usepackage[group-separator={,}, group-digits=true]{siunitx}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath}
+\allowdisplaybreaks
+\begin{document}
+	\begin{align*}
+		% Fin Geometry Calculations Block
+		\textbf{Fin Geometry Calculations} \\
+		\text{Root Chord Length:}& &c_{r} &=\SI{9.0}{in} \\
+		\text{Tip Chord Length:}& &c_{t} &= \SI{3.0}{in} \\
+		\text{Fin Thickness:}& &FT &= \SI{0.37}{in} \\
+		\text{Fin semi-span root to tip:}& &b &= \SI{4.75}{in} \\
+		\text{Shear modulus of fin material (fiberglass):}& &G &= \SI{1185185.16}{psi} \\
+		\text{Fin surface area:}& &S &= \frac{1}{2} \left( c_{r} + c_{t} \right) \cdot b \tag{eqn. 1} \\
+		&& &= \frac{1}{2} \left( 9.0 + 3.0 \right) \cdot4.0\\
+		&& &= \SI{24.0}{in^2} \\ \\
+		\text{Fin Aspect Ratio:}& &AR &= \frac{b^2}{S} \tag{eqn. 2} \\
+		&& &= \frac{\left(4.0\right)^2}{\SI{24.0}{in^2}} \\
+		&& &= 0.667\\ \\
+		\text{Fin taper ratio:}& &\lambda &= \frac{c_{t}}{c_{r}} \tag{eqn. 3} \\
+		&& &= \frac{3.0}{9.0} \\
+		&& &= 0.33\\
+		\\ \\
+		% Atmospheric Conditions Calculations Block
+		\textbf{Atmospheric Conditions Calculations} \\
+		\text{Sea level atmospheric pressure:}& &P_{0} &= \SI{14.69}{psi} \\
+		\text{Altitude at launchpad:}& &h_{g} &= \SI{4595.0}{ft} \\
+		\text{Altitude of max velocity relative to launchpad:}& &h_{relVmax} &= \SI{1947.94}{ft} \\
+		\text{Altitude of max velocity:}& &h_{Vmax} &= h_{g} + h_{relVmax} \\ \tag{eqn.4}
+		&& &= 4595.0 + 1947.94 \\
+		&& &= \SI{6542.94}{ft} \\ \\
+		\text{Temperature at h\_Vmax:}& &T &= 59 - 0.00356 \cdot h_{Vmax} \tag{eqn. 5}\\
+		&& &= 59 - 0.00356 \cdot 6542.94\\
+		&& &= \SI{35.71}{\degree F} \\ \\
+		\text{Pressure at h\_Vmax:}& &P &= P_{0} \cdot \left(\frac{T + 459.7}{ 518.6 }\right)^{5.256} \tag{eqn.6} \\
+		&& &= 14.69\cdot \left(\frac{35.71 + 459.7 }{ 518.6 }\right)^{5.256} \\
+		&& &= \SI{11.55}{psi} \\ \\
+		\text{Speed of sound at h\_Vmax: }& &a &= \sqrt { 1.4 \cdot 1716.59 \cdot \left(T + 459.7 \right) } \tag{eqn. 7}\\&& &= \sqrt { 1.4 \cdot 1716.59 \cdot \left(35.71 + 459.7 \right) } \\
+		&& &= \SI{1091.47}{ft/s} \\ \\
+		\\
+		% Fin Flutter Velocity Calculations
+		\textbf{Fin Velocity Calculations} \\
+		\text{Max velocity of rocket:}& &V_{max} &= \SI{979.86}{ft/s} \\ \\
+		\text{Fin flutter velocity:}& &v_{fl} &= \sqrt {\frac{ G }{\left( \frac{ 39.3 \cdot \left( AR \right) ^{ 3 } }{ \left( \frac{ FT }{ c_{r} } \right) ^{ 3 } \cdot \left( AR + 2 \right) } \right) \left( \frac{ \lambda + 1 }{ 2 } \right) \left( \frac{ P }{ P_{0} } \right) } } \cdot a \tag{eqn. 8} \\&& &= \sqrt { \frac{1185185.16}{ \left( \frac{ 39.3 \cdot \left(0.667 \right) ^{ 3 } }{ \left( \frac{0.37}{9.0} \right) ^{3} \cdot \left(0.667 + 2 \right) } \right) \left( \frac{0.33+ 1 }{ 2 } \right) \left( \frac{11.55}{14.69} \right) } } \cdot 1091.47\\&& &= \SI{6679.99}{ft/s} \\ \\
+		\text{Fin flutter safety margin:}& &SM &= \frac{V_{max}}{v_{fl}} \tag{eqn. 9} \\&& &= \frac{979.86}{6679.99} \\
+		&& &= 6.82\\
+		\\
+		% Parachute Descent Velocity Equation Proof
+		\textbf{Parachute Descent Velocity Equation Proof} \\
+		\text{Drag force equation:}& &F_{d} &= \frac{1}{2} \cdot \rho \cdot V^{2} \cdot c_{d} \cdot A \tag{eqn. 10} \\
+		\text{Parachute area:}& &A &= \pi \cdot \left( \frac{D^{2}}{4} \right) \\
+		\text{Drag force equation with D:}& &F_{d} &= \frac{1}{2} \cdot \rho \cdot V^{2} \cdot c_{d} \cdot \pi \cdot \left( \frac{D^{2}}{4} \right) \\
+		& &\implies F_{d} &= \frac{1}{8} \cdot \rho \cdot V^{2} \cdot c_{d} \cdot \pi \cdot D^{2} \\ \\
+		\text{Weight force equation:}& &F_{w} &= m \cdot g \\
+		\text{Force balance of drag and weight:}& &F_{w} &= F_{d} \\
+		&& \implies m \cdot g&= \frac{1}{8} \cdot \rho \cdot V^{2} \cdot c_{d} \cdot \pi \cdot D^{2} \tag{eqn. 11} \\ \\
+		\text{Re-arrange force balance equation for solution:}& & V_{chute} &= \sqrt{\frac{8 \cdot m \cdot g}{\rho \cdot c_{d} \cdot \pi \cdot D^{2}}} \tag{eqn. 12} \\ \\
+		% Descent Velocity Calculations
+		\textbf{Descent Velocity Calculations} \\
+		\text{Parachute Descent Velocity Equation:}& & V_{chute} &= \sqrt{\frac{8 \cdot m \cdot g}{\rho \cdot C_{d} \cdot \pi \cdot D^{2}}} \tag{eqn. 12} \\ \\
+		% Parchute Parameters
+		\text{Drogue Chute Diameter:}& &D_{d} &= \SI{2.5}{ft} \\
+		\text{Drogue Chute Drag Coefficient:}& &Cd_{d} &= \SI{1.55}{} \\
+		\text{Air density under drogue chute descent:}& &\rho_{d} &= \SI{0.06}{lbs/ft^3} \\ \\
+		\text{Main Chute Diameter:}& &D_{m} &= \SI{12.0}{ft} \\
+		\text{Main Chute Drag Coefficient:}& &Cd_{m} &= \SI{2.2}{} \\
+		\text{Air density under main chute descent:}& &\rho_{m} &= \SI{0.07}{lbs/ft^3} \\ \\
+		\text{Rocket mass after motor burnout:}& &m &= \SI{63.3}{lbs} \\ \\
+		\text{Gravity:}& &g &= \SI{32.17}{ft/s^2} \\ \\
+		\text{Drogue chute descent velocity:}& &V_{drogue} &= \sqrt{\frac{8 \cdot 63.3 \cdot 32.2}{\pi \cdot 0.06 \cdot 1.55 \cdot 2.5^{2}}} \\
+		&& &= \SI{91.6}{ft/s} \\ \\
+		\text{Main chute descent velocity:}& &V_{main} &= \sqrt{\frac{8 \cdot 63.3 \cdot 32.2}{\pi \cdot 0.07 \cdot 2.2 \cdot 12.0^{2}}} \\
+		&& &= \SI{15.87}{ft/s} \\ \\
+		% Ejection Charge Size Calculations
+		\textbf{Ejection Charge Size Calculations} \\
+		\text{Airframe Diameter:}& &D_{a} &= \SI{3.9}{in} \\ \\
+		\text{Bulkhead area:}& & A_{bh} &= \frac{D_{a} \cdot pi}{4} \tag{eqn. 13} \\
+		&& &= \SI{11.95}{in^2} \\ \\
+		\text{Force applied to bulkheads by P\_{e}:}& &F_{e} &= P_{e} \cdot A_{bh} \\
+		&& &= \SI{179.19}{lbs} \\ \\
+		\text{Airframe Section Volume Equation:}& &Vol_{s} &= \frac{ \pi \cdot D^{2} \cdot L}{4} \tag{eqn. 14} \\ \\
+		\text{Volume of Drogue Chute Bay:}&&Vol_{d} &= \frac{\pi \cdot 3.9^{2} \cdot10.0}{4} \\
+		&& &= \SI{119.46}{in^3} \\ \\
+		\text{Volume of Main Chute Bay:}&&Vol_{m} &= \frac{\pi \cdot 3.9^{2} \cdot21.0}{4} \\
+		&& &= \SI{250.86}{in^3} \\ \\
+		\text{Combustion gas constant of black powder:}& &R &= 265.92 \frac{in \cdot lbf}{lbm \cdot \SI{}{\degree R}} \\ \\
+		\text{Combustion gas temperature of black powder:}& &T_{c} &= 3307 \: \SI{}{\degree R} \\ \\
+		\text{Black powder charge  mass equation:}& &m_{bp} &= \frac{454 g}{1 lbf} \cdot \frac{P_{e} \cdot Vol_{s}}{265.92 \frac{in \cdot lbf}{lbm \cdot \SI{}{\degree R}} \cdot 3307 \cdot \SI{}{\degree R}} \tag{eqn. 15} \\ \\
+		\text{Black powder charge mass for drogue chute bay:}& &m_{bp,d} &= \frac{454 g}{1 lbf} \cdot \frac{15.0 \cdot 119.46}{265.92  \cdot 3307 \cdot} \\
+		&& &= \SI{0.93}{g} \\ \\
+		\text{Black powder charge mass for main chute bay: }& &m_{bp,m} &= \frac{454 g}{1 lbf} \cdot \frac{15.0 \cdot 250.86}{265.92  \cdot 3307} \\
+		&& &= \SI{1.94}{g} \\ \\
+		% Ejection Charge Size Calculations Reversed
+		\textbf{Ejection Charge Size Calculations Reversed } \\
+		\text{Airframe Diameter:}& &D_{a} &= \SI{3.9}{in} \\ \\
+		\text{Bulkhead area:}& & A_{bh} &= \frac{D_{a} \cdot \pi}{4} \tag{eqn. 13} \\
+		&& &= \SI{11.95}{in^2} \\ \\
+		\text{Length of Drogue Chute Bay:}&&L_{d,bay} &= \SI{10.0}{in} \\
+		\text{Length of Main Chute Bay:}&&L_{m,bay} &= \SI{21.0}{in} \\
+		\text{Airframe Section Volume Equation:}& &Vol_{s} &= \frac{ \pi \cdot D^{2} \cdot L}{4} \tag{eqn. 14} \\ \\
+		\text{Volume of Drogue Chute Bay:}&&Vol_{d} &= \frac{\pi \cdot 3.9^{2} \cdot10.0}{4} \\
+		&& &= \SI{119.46}{in^3} \\ \\
+		\text{Volume of Main Chute Bay:}&&Vol_{m} &= \frac{\pi \cdot 3.9^{2} \cdot21.0}{4} \\
+		&& &= \SI{250.86}{in^3} \\ \\
+		\text{Combustion gas constant of black powder:}& &R &= 265.92 \frac{in \cdot lbf}{lbm \cdot \SI{}{\degree R}} \\ \\
+		\text{Combustion gas temperature of black powder:}& &T_{c} &= 3307 \: \SI{}{\degree R} \\ \\
+		\text{Ejection pressure equation: }& &P_{e} &= \left( m_{bp} \cdot \frac{\SI{1}{lbf}}{\SI{454}{g}} \right) \cdot \frac{R \cdot T_{c}}{Vol_{S}} \tag{eqn. 15} \\ \\
+		\text{Force applied to bulkheads equaton:}& &F_{e} &= P_{e} \cdot A_{bh} \tag{eqn. 16} \\ \\
+		\text{Black powder charge mass for drogue chute bay:}& &m_{bp,d} &= \SI{2.5}{g} \\
+			\text{Ejection pressure for drogue chute:}& &P_{e,d} &= \left(\SI{2.5}{g} \cdot \frac{1 lbf}{454 g} \right) \cdot \frac{265.92 \frac{in \cdot lbf}{lbm \cdot  \SI{}{\degree R}} \cdot 3307 \SI{}{\degree R}}{119.46} \\ \\
+		&& &= \SI{40.54}{psi} \\ \\
+		\text{Force applied to drogue chute bay bulkheads:}& &F_{e,d } &= P_{e} \cdot A_{bh} \\
+		&& &= 40.54\cdot 11.95\\
+		&& &= \SI{484.25}{lbs} \\ \\
+		\text{Black powder charge mass for main chute bay:}& &m_{bp,m} &= \SI{5}{g} \\
+			\text{Ejection pressure for main chute:}& &P_{e,m} &= \left(\SI{5}{g} \cdot \frac{1 lbf}{454 g} \right) \cdot \frac{265.92 \frac{in \cdot lbf}{lbm \cdot  \SI{}{\degree R}} \cdot 3307 \SI{}{\degree R}}{250.86} \\ \\
+		&& &= \SI{38.61}{psi} \\ \\
+		\text{Force applied to main chute bay bulkheads:}& &F_{e,d } &= P_{e} \cdot A_{bh} \\
+		&& &= 38.61\cdot 11.95\\
+		&& &= \SI{461.19}{lbs} \\ \\
+		% Main Chute Opening Force Calculation
+		\textbf{Main Chute Opening Force Calculation} \\
+		\text{Descent velocity before main chute opening:}& &V_{i} &= \SI{82.37}{ft/s} \\ \\
+		\text{Descent velocity after main chute opening:}& &V_{f} &= \SI{15.69}{ft/s} \\ \\
+		\text{Main chute opening time:}& &t_{infl} &= \SI{0.51}{s} \\ \\
+		\text{Main Chute Opening Force Equation:}& &F_{max} &= \left( \frac{2 \cdot m \cdot v_{i}}{g \cdot t_{infl}} \right) \left( 1 - \frac{v_f}{v_i} \right) + 2 \cdot m \tag{eqn. 16} \\
+		&& &= \left( \frac{2 \cdot 63.3 \cdot 82.37}{32.17\cdot 0.51} \right) \left( 1 - \frac{15.69}{82.37} \right) + 2 \cdot63.3\\&& &= \SI{183.34}{lbf} \\
+	\end{align*}
+\end{document}

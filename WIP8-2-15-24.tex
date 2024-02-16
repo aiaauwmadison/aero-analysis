@@ -15,7 +15,7 @@
 		\text{Tip Chord Length:}& &c_{t} &= \SI{3.0}{in} \\
 		\text{Fin Thickness:}& &FT &= \SI{0.37}{in} \\
 		\text{Fin semi-span root to tip:}& &b &= \SI{4.75}{in} \\
-		\text{Shear modulus of fin material (fiberglass):}& &G &= \SI{1185185.16}{psi} \\
+		\text{Shear modulus of fin material (fiberglass):}& &G &= \SI{400000.0}{psi} \\
 		\text{Fin surface area:}& &S &= \frac{1}{2} \left( c_{r} + c_{t} \right) \cdot b \tag{eqn. 1} \\
 		&& &= \frac{1}{2} \left( 9.0 + 3.0 \right) \cdot4.0\\
 		&& &= \SI{24.0}{in^2} \\ \\
@@ -46,9 +46,9 @@
 		% Fin Flutter Velocity Calculations
 		\textbf{Fin Velocity Calculations} \\
 		\text{Max velocity of rocket:}& &V_{max} &= \SI{979.86}{ft/s} \\ \\
-		\text{Fin flutter velocity:}& &v_{fl} &= \sqrt {\frac{ G }{\left( \frac{ 39.3 \cdot \left( AR \right) ^{ 3 } }{ \left( \frac{ FT }{ c_{r} } \right) ^{ 3 } \cdot \left( AR + 2 \right) } \right) \left( \frac{ \lambda + 1 }{ 2 } \right) \left( \frac{ P }{ P_{0} } \right) } } \cdot a \tag{eqn. 8} \\&& &= \sqrt { \frac{1185185.16}{ \left( \frac{ 39.3 \cdot \left(0.667 \right) ^{ 3 } }{ \left( \frac{0.37}{9.0} \right) ^{3} \cdot \left(0.667 + 2 \right) } \right) \left( \frac{0.33+ 1 }{ 2 } \right) \left( \frac{11.55}{14.69} \right) } } \cdot 1091.47\\&& &= \SI{6679.99}{ft/s} \\ \\
-		\text{Fin flutter safety margin:}& &SM &= \frac{V_{max}}{v_{fl}} \tag{eqn. 9} \\&& &= \frac{979.86}{6679.99} \\
-		&& &= 6.82\\
+		\text{Fin flutter velocity:}& &v_{fl} &= \sqrt {\frac{ G }{\left( \frac{ 39.3 \cdot \left( AR \right) ^{ 3 } }{ \left( \frac{ FT }{ c_{r} } \right) ^{ 3 } \cdot \left( AR + 2 \right) } \right) \left( \frac{ \lambda + 1 }{ 2 } \right) \left( \frac{ P }{ P_{0} } \right) } } \cdot a \tag{eqn. 8} \\&& &= \sqrt { \frac{400000.0}{ \left( \frac{ 39.3 \cdot \left(0.667 \right) ^{ 3 } }{ \left( \frac{0.37}{9.0} \right) ^{3} \cdot \left(0.667 + 2 \right) } \right) \left( \frac{0.33+ 1 }{ 2 } \right) \left( \frac{11.55}{14.69} \right) } } \cdot 1091.47\\&& &= \SI{3880.72}{ft/s} \\ \\
+		\text{Fin flutter safety margin:}& &SM &= \frac{V_{max}}{v_{fl}} \tag{eqn. 9} \\&& &= \frac{979.86}{3880.72} \\
+		&& &= 3.96\\
 		\\
 		% Parachute Descent Velocity Equation Proof
 		\textbf{Parachute Descent Velocity Equation Proof} \\

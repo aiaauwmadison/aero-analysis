@@ -1,5 +1,7 @@
 ork_filename: IREC2024_V11.ork
+author: Gabe Bohlmann
 V_max: 979.86
+G: 380000
 h_g: 4595
 h_relVmax: 1947.94
 m: 63.3

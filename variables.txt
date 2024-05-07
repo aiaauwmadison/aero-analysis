@@ -1,6 +1,4 @@
-ork_filename: WIP8.ork
-author: Gabe Bohlmann
-G: 400,000
+ork_filename: IREC2024_V11.ork
 V_max: 979.86
 h_g: 4595
 h_relVmax: 1947.94
